@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <!-- BEGIN REGISTRATION FORM -->
+    <div class="col-md-8 col-md-offset-2">
+        <h3 class="form-signin-heading" th:text="#{form.registration.title}">form</h3>
+        <form class="form-signin" th:action="@{/register}" th:object="${user}" method="POST" enctype="utf8">
+            <div class="form-group">
+                <div class="">
+                    <label th:text="#{form.first.name}">first</label>
+                    <input th:field="*{name}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <label th:text="#{form.last.name}">last</label>
+                    <input th:field="*{lastName}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <label th:text="#{form.email}">email</label>
+                    <input type="email" th:field="*{email}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <label th:text="#{form.password}">password</label>
+                    <input type="password" th:field="*{password}" class=form-control" placeholder="Password"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <button type="submit" th:text="#{form.submit}" class="btn btn-primary btn-block">submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

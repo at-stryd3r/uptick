@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+</head>
+
+<body>
+<div class="container-fluid">
+    <!-- BEGIN SIGN IN FORM -->
+    <div class="col-md-8 col-md-offset-2">
+        <h3 id="loginPageLabel">Enter your login information</h3>
+        <form th:action="@{/authenticateTheUser}" method="post">
+            <div class="alert alert-danger" role="alert" th:if="${loginError}">
+                <p th:text="#{form.errorMessage}">ERROR</p>
+            </div>
+            <!-- USER NAME -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" autofocus class="form-control"
+                       placeholder="Username"/>
+            </div>
+            <!-- PASSWORD -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control"
+                       placeholder="Password"/>
+            </div>
+            <!-- LOGIN/SUBMIT -->
+            <div class="form-group">
+            <input type="submit" class="btn btn-success" th:value="#{form.login}"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
