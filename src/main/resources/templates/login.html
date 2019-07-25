@@ -12,8 +12,8 @@
     <!-- BEGIN SIGN IN FORM -->
     <div class="col-md-8 col-md-offset-2">
         <h3 id="loginPageLabel">Enter your login information</h3>
-        <form th:action="@{/authenticateTheUser}" method="post">
-            <div class="alert alert-danger" role="alert" th:if="${loginError}">
+        <form action="home" th:action="@{/login}" method="post">
+            <div class="alert alert-danger" role="alert" th:if="${param.error}">
                 <p th:text="#{form.errorMessage}">ERROR</p>
             </div>
             <!-- USER NAME -->
