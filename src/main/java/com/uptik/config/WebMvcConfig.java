@@ -12,12 +12,5 @@ import java.util.logging.Logger;
 @EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    @Autowired
-    private Environment env;
-
-    private Logger logger = Logger.getLogger(getClass().getName());
-
-
-
 
 }

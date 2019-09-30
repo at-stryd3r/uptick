@@ -1,5 +1,7 @@
 package com.uptik.model;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -13,16 +15,10 @@ public class User {
     private Long id;
 
     @Column(name = "username")
-    private String userName;
+    private String username;
 
     @Column(name = "password")
     private String password;
-
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
 
     @Column(name = "email")
     private String email;
@@ -37,19 +33,15 @@ public class User {
     }
 
     public User(String userName, String password, String firstName, String lastName, String email) {
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.email = email;
     }
 
     public User(String userName, String password, String firstName, String lastName, String email,
                 Collection<Role> roles) {
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.email = email;
         this.roles = roles;
     }
@@ -63,11 +55,11 @@ public class User {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getPassword() {
@@ -76,22 +68,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -112,8 +88,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", userName='" + userName + '\'' + ", password='" + "*********" + '\''
-                + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", email='" + email + '\''
+        return "User{" + "id=" + id + ", userName='" + username + '\'' + ", password='" + "*********" + '\''
+                + '\'' + ", email='" + email + '\''
                 + ", roles=" + roles + '}';
     }
 }

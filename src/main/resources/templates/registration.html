@@ -15,19 +15,19 @@
             <div class="form-group">
                 <div class="">
                     <label th:text="#{form.username}">first</label>
-                    <input th:field="*{name}"/>
+                    <input type="text" th:field="*{userName}" th:placeholder="Username"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="">
                     <label th:text="#{form.email}">email</label>
-                    <input type="email" th:field="*{email}"/>
+                    <input type="email" th:field="*{email}" th:placeholder="Email"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="">
                     <label th:text="#{form.password}">password</label>
-                    <input type="password" th:field="*{password}" class=form-control" placeholder="Password"/>
+                    <input type="password" th:field="*{password}" th:placeholder="Password"/>
                 </div>
             </div>
             <div class="form-group">

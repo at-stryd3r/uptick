@@ -2,11 +2,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial scale=1 shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/index}">
+            <img src="http://placehold.it/150x50?text=Logo" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <a class="nav-link text-white" th:href="@{/about}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" th:href="@{/contact}">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-white dropdown-toggle" data-toggle="dropdown" href="#">Jobs</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-white bg-dark" th:href="@{#}">Link 1</a>
+                        <a class="dropdown-item text-white bg-dark" th:href="@{#}">Link 2</a>
+                        <a class="dropdown-item text-white bg-dark" th:href="@{#}">Link 3</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" th:href="@{/login}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bg-secondary text-white" th:href="@{/signup}">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <body>
 <div class="container-fluid">
     <!-- BEGIN SIGN IN FORM -->
