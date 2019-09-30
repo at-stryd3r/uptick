@@ -10,9 +10,4 @@ public class LandingPageController {
     public String showLandingPage() {
         return "index";
     }
-
-    @GetMapping("/home")
-    public String login() {
-        return "home";
-    }
 }
