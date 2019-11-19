@@ -2,6 +2,7 @@ package com.uptik.config;
 
 import com.auth0.AuthenticationController;
 import com.uptik.controller.LogoutController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 import java.io.UnsupportedEncodingException;
+
 
 @SuppressWarnings("unused")
 @Configuration
@@ -29,7 +31,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value(value = "${com.auth0.clientSecret}")
     private String clientSecret;
 
-
     @Bean
     public LogoutSuccessHandler logoutSuccessHandler() {
         return new LogoutController();
@@ -44,19 +45,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
+
         http
                 .authorizeRequests()
                 .antMatchers("/callback", "/login", "/", "/*.png", "/css/**", "/js/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .logout().logoutSuccessHandler(logoutSuccessHandler()).permitAll();
-    }
-
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring()
-                // Resources should be ignored to prevent redirecting to them after login.
-                .antMatchers("/css/**", "/**/js/**", "/img/**", "/fonts/**", "/favicon.ico**");
     }
 
     public String getDomain() {

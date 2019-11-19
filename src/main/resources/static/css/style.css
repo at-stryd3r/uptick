@@ -1,3 +1,7 @@
+/*
+Index Page
+ */
+
 body {
     background: #333;
     color:#fff;
@@ -41,4 +45,20 @@ body {
 
 #logo-index {
     background-color: #FF7E00;
+}
+
+#explore-section .fas,
+#share-section .fas {
+    background: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/*
+Login Page
+ */
+
+.login-form {
+    padding-top: 150px;
 }

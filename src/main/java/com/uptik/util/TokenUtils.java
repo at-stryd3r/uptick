@@ -14,12 +14,6 @@ public class TokenUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(TokenUtils.class);
 
-    /**
-     * Get the JWT claims as a JSON string.
-     *
-     * @param claims the JWT ID token claims
-     * @return the claims as JSON
-     */
     public static String claimsAsJson(Map<String, Claim> claims) {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectNode node = objectMapper.createObjectNode();
@@ -52,4 +46,3 @@ public class TokenUtils {
         return json;
     }
 }
-

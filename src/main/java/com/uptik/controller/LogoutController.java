@@ -12,12 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 @SuppressWarnings("unused")
 @Controller
 public class LogoutController implements LogoutSuccessHandler {
 
     @Autowired
-    private WebSecurityConfig appConfig;
+    private WebSecurityConfig webSecurityConfig;
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -32,8 +33,8 @@ public class LogoutController implements LogoutSuccessHandler {
         returnTo += "/";
         String logoutUrl = String.format(
                 "https://%s/v2/logout?client_id=%s&returnTo=%s",
-                appConfig.getDomain(),
-                appConfig.getClientId(),
+                webSecurityConfig.getDomain(),
+                webSecurityConfig.getClientId(),
                 returnTo);
         try {
             res.sendRedirect(logoutUrl);
@@ -47,5 +48,6 @@ public class LogoutController implements LogoutSuccessHandler {
             request.getSession().invalidate();
         }
     }
+
 
 }

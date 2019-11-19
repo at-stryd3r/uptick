@@ -5,6 +5,8 @@ import com.auth0.IdentityVerificationException;
 import com.auth0.Tokens;
 import com.auth0.jwt.JWT;
 import com.uptik.config.TokenAuthentication;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
@@ -21,6 +23,8 @@ import java.io.IOException;
 @SuppressWarnings("unused")
 @Controller
 public class CallbackController {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private AuthenticationController controller;

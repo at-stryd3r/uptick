@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 @SuppressWarnings("unused")
 @Controller
 public class LoginController {
@@ -20,7 +19,7 @@ public class LoginController {
     private AuthenticationController controller;
 
     @Autowired
-    private WebSecurityConfig appConfig;
+    private WebSecurityConfig webSecurityConfig;
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -33,7 +32,7 @@ public class LoginController {
         }
         redirectUri += "/callback";
         String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri)
-                .withAudience(String.format("https://%s/userinfo", appConfig.getDomain()))
+                .withAudience(String.format("https://%s/userinfo", webSecurityConfig.getDomain()))
                 .withScope("openid profile email")
                 .build();
         return "redirect:" + authorizeUrl;
